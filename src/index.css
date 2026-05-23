@@ -5,13 +5,13 @@
    ═══════════════════════════════════════════════════ */
 
 @theme {
-  --color-bg-main: #e8f5f3;
-  --color-bg-card: #ffffff;
-  --color-bg-badge: #d4eeeb;
-  --color-text-main: #1a2e2b;
-  --color-text-muted: #5a6b68;
-  --color-accent: #1a7a6e;
-  --color-border: #d4eeeb;
+  --color-bg-main: #0a0f1e;
+  --color-bg-card: #0f1628;
+  --color-bg-badge: #0d1220;
+  --color-text-main: #ffffff;
+  --color-text-muted: #a0aec0;
+  --color-accent: #3b9eff;
+  --color-border: #1e2a45;
 }
 
 /* ─── Base Reset & Globals ─── */
@@ -25,6 +25,10 @@ body {
   font-family: var(--font-body);
   color: var(--color-text-main);
   background-color: var(--color-bg-main);
+  background-image: 
+    linear-gradient(135deg, rgba(59, 158, 255, 0.05) 0%, transparent 100%),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 40px);
+  background-attachment: fixed;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
