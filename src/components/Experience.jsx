@@ -55,6 +55,7 @@ function ExperienceCard({ exp, index }) {
       />
 
       {/* Experience Card */}
+       {/* Experience Card */}
       <motion.div
         ref={cardRef}
         initial={{ opacity: 0, y: 40 }}
