@@ -1,0 +1,257 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════
+   DESIGN SYSTEM — Royal Blue · Powder Blue · Warm Beige
+   ═══════════════════════════════════════════════════ */
+
+@theme {
+  --color-bg-main: #0B0F17;
+  --color-bg-card: #151A23;
+  --color-bg-badge: #1E2532;
+  --color-text-main: #F8FAFC;
+  --color-text-muted: #94A3B8;
+  --color-accent: #38BDF8;
+  --color-border: #2A3143;
+}
+
+/* ─── Base Reset & Globals ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-main);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Typography ─── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+p {
+  line-height: 1.75;
+  color: var(--color-text-muted);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-main);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-royal-blue-light);
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: var(--color-bg-badge);
+  color: var(--color-text-main);
+}
+
+/* ─── Accessibility: Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Section Spacing ─── */
+.section {
+  padding: 6rem 1.5rem;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 8rem 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 8rem 4rem;
+  }
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ─── Section Title ─── */
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--color-text-main);
+  border-radius: 2px;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 3rem;
+  }
+}
+
+/* ─── Ticker Animation ─── */
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  display: flex;
+  animation: ticker-scroll 25s linear infinite;
+  width: max-content;
+}
+
+/* ─── Pulsing Badge ─── */
+@keyframes pulse-badge {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+.pulse-badge {
+  animation: pulse-badge 2s ease-in-out infinite;
+}
+
+/* ─── Scroll Indicator ─── */
+@keyframes bounce-down {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+}
+
+.scroll-indicator {
+  animation: bounce-down 2s ease-in-out infinite;
+}
+
+/* ─── Typewriter Cursor ─── */
+@keyframes blink-cursor {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background: var(--color-text-main);
+  margin-left: 2px;
+  animation: blink-cursor 1s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+/* ─── Form Elements ─── */
+.form-field {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 1rem 0;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-main);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-bottom-color: var(--color-text-main);
+}
+
+.form-field label {
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.form-field input:focus ~ label,
+.form-field input:not(:placeholder-shown) ~ label,
+.form-field textarea:focus ~ label,
+.form-field textarea:not(:placeholder-shown) ~ label {
+  top: -0.75rem;
+  font-size: 0.75rem;
+  color: var(--color-text-main);
+  font-weight: 600;
+}
+
+.form-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--color-text-main);
+  transition: width 0.4s ease;
+}
+
+.form-field input:focus ~ .form-underline,
+.form-field textarea:focus ~ .form-underline {
+  width: 100%;
+}
