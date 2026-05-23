@@ -234,18 +234,7 @@ export default function Contact() {
             ))}
           </div>
 
-          {/* Footer */}
-          <p
-            style={{
-              textAlign: 'center',
-              fontSize: '0.8rem',
-              color: 'var(--color-text-muted)',
-              marginTop: '3rem',
-              opacity: 0.7,
-            }}
-          >
-            © {new Date().getFullYear()} Shammika Dinesh Wijethunga. All rights reserved.
-          </p>
+
         </div>
       </div>
     </section>
