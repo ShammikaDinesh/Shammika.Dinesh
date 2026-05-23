@@ -55,9 +55,9 @@ function Counter({ target, label, suffix = '' }) {
 const tickerItems = [
   'Linux',
   'Windows Server',
-  'CCTV Systems',
   'Network Operations',
   'Healthcare IT',
+  'SAP System Admin',
   'Data Protection',
   'Hardware Config',
   'Web Design',
