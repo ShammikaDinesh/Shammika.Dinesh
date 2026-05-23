@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════
-   DESIGN SYSTEM — Royal Blue · Powder Blue · Warm Beige
+   DESIGN SYSTEM — Warm Charcoal · Golden Orange · Ivory
    ═══════════════════════════════════════════════════ */
 
 @theme {
-  --color-bg-main: #0B0F17;
-  --color-bg-card: #151A23;
-  --color-bg-badge: #1E2532;
-  --color-text-main: #F8FAFC;
-  --color-text-muted: #94A3B8;
-  --color-accent: #38BDF8;
-  --color-border: #2A3143;
+  --color-bg-main: #0d0a08;
+  --color-bg-card: #1a1614;
+  --color-bg-badge: #26211e;
+  --color-text-main: #f0e6d2;
+  --color-text-muted: #a3978d;
+  --color-accent: #d49555;
+  --color-border: #302824;
 }
 
 /* ─── Base Reset & Globals ─── */
