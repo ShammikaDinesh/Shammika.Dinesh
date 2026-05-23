@@ -88,7 +88,7 @@ export default function Hero() {
       style={{
         position: 'relative',
         minHeight: '100vh',
-        background: 'var(--color-bg-main)',
+        background: 'var(--color-bg-badge)',
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'center',
@@ -283,7 +283,7 @@ export default function Hero() {
               justifyContent: 'center',
               padding: '0.85rem 2rem',
               background: 'var(--color-accent)',
-              color: '#0B0F17',
+              color: '#ffffff',
               borderRadius: 12,
               textDecoration: 'none',
               fontWeight: 600,

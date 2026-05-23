@@ -243,7 +243,7 @@ export default function About() {
             <span
               key={i}
               style={{
-                color: '#fff',
+                color: 'var(--color-accent)',
                 fontWeight: 500,
                 fontSize: '0.95rem',
                 marginRight: '2.5rem',

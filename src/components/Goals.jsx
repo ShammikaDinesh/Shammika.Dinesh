@@ -131,7 +131,7 @@ export default function Goals() {
                         top: 16,
                         right: 16,
                         background: 'var(--color-accent)',
-              color: '#0B0F17',
+              color: '#ffffff',
                         padding: '0.3rem 0.8rem',
                         borderRadius: 999,
                         fontSize: '0.7rem',

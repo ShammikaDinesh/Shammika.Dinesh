@@ -5,13 +5,13 @@
    ═══════════════════════════════════════════════════ */
 
 @theme {
-  --color-bg-main: #0d0a08;
-  --color-bg-card: #1a1614;
-  --color-bg-badge: #26211e;
-  --color-text-main: #f0e6d2;
-  --color-text-muted: #a3978d;
-  --color-accent: #d49555;
-  --color-border: #302824;
+  --color-bg-main: #e8f5f3;
+  --color-bg-card: #ffffff;
+  --color-bg-badge: #d4eeeb;
+  --color-text-main: #1a2e2b;
+  --color-text-muted: #5a6b68;
+  --color-accent: #1a7a6e;
+  --color-border: #d4eeeb;
 }
 
 /* ─── Base Reset & Globals ─── */

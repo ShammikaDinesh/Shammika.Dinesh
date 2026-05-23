@@ -71,7 +71,7 @@ export default function Navbar() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          background: scrolled ? 'rgba(11, 15, 23, 0.95)' : 'transparent',
+          background: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
           backdropFilter: scrolled ? 'blur(12px)' : 'none',
           borderBottom: scrolled ? '1px solid var(--color-border)' : '1px solid transparent',
           boxShadow: scrolled ? '0 4px 30px rgba(0, 0, 0, 0.3)' : 'none',

@@ -49,8 +49,8 @@ export default function Footer() {
   return (
     <footer style={{
       position: 'relative',
-      background: '#040710', // Deep dark background
-      color: '#ffffff',
+      background: 'var(--color-bg-badge)', // Deep dark background
+      color: 'var(--color-text-main)',
       padding: '4rem 5% 2rem',
       overflow: 'hidden',
       fontFamily: 'var(--font-body, system-ui, sans-serif)',
@@ -62,7 +62,7 @@ export default function Footer() {
         right: 0,
         width: '80%',
         height: '100%',
-        background: 'radial-gradient(circle at bottom right, rgba(59,91,219,0.15) 0%, transparent 60%)',
+        background: 'radial-gradient(circle at bottom right, rgba(26,122,110,0.1) 0%, transparent 60%)',
         pointerEvents: 'none',
         zIndex: 0
       }} />
@@ -82,25 +82,25 @@ export default function Footer() {
           flexWrap: 'wrap',
           gap: '1.5rem',
           paddingBottom: '2rem',
-          borderBottom: '1px solid rgba(255,255,255,0.08)',
+          borderBottom: '1px solid var(--color-border)',
           marginBottom: '4rem'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <div style={{ width: 24, height: 24, background: '#fff', borderRadius: '50%', flexShrink: 0 }} />
-            <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem' }}>
+            <div style={{ width: 24, height: 24, background: 'var(--color-text-main)', borderRadius: '50%', flexShrink: 0 }} />
+            <span style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>
               Your next idea, beautifully designed and flawlessly built
             </span>
           </div>
           <div style={{ display: 'flex', gap: '1.25rem' }}>
             {[Globe, YoutubeIcon, MessageCircle, InstagramIcon, GithubIcon, TwitterIcon].map((Icon, i) => (
               <a key={i} href="#" style={{
-                color: 'rgba(255,255,255,0.6)',
+                color: 'var(--color-text-muted)',
                 transition: 'color 0.2s',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
               }}
-              onMouseEnter={e => e.currentTarget.style.color = '#fff'}
+              onMouseEnter={e => e.currentTarget.style.color = 'var(--color-bg-card)'}
               onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}>
                 <Icon size={18} />
               </a>
@@ -130,8 +130,8 @@ export default function Footer() {
             </h2>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <button style={{
-                background: '#3B5BDB', // var(--color-accent) typically
-                color: '#fff',
+                background: 'var(--color-accent)', // var(--color-accent) typically
+                color: 'var(--color-text-main)',
                 border: 'none',
                 padding: '0.8rem 1.75rem',
                 borderRadius: 999,
@@ -143,15 +143,15 @@ export default function Footer() {
                 cursor: 'pointer',
                 transition: 'background 0.2s'
               }}
-              onMouseEnter={e => e.currentTarget.style.background = '#324db8'}
-              onMouseLeave={e => e.currentTarget.style.background = '#3B5BDB'}
+              onMouseEnter={e => e.currentTarget.style.background = '#145c53'}
+              onMouseLeave={e => e.currentTarget.style.background = 'var(--color-accent)'}
               >
                 <Zap size={16} fill="currentColor" /> Start Now
               </button>
               <button style={{
                 background: 'transparent',
-                color: '#fff',
-                border: '1px solid rgba(255,255,255,0.2)',
+                color: 'var(--color-text-main)',
+                border: '1px solid var(--color-border)',
                 padding: '0.8rem 1.75rem',
                 borderRadius: 999,
                 fontWeight: 500,
@@ -177,12 +177,12 @@ export default function Footer() {
           <div style={{ display: 'flex', gap: '4rem', flexWrap: 'wrap' }}>
             {/* NAVIGATE */}
             <div>
-              <h4 style={{ color: '#fff', marginBottom: '1.5rem', fontSize: '1rem', fontWeight: 500 }}>NAVIGATE</h4>
+              <h4 style={{ color: 'var(--color-text-main)', marginBottom: '1.5rem', fontSize: '1rem', fontWeight: 500 }}>NAVIGATE</h4>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {['Home', 'Services', 'Portfolio', 'About', 'Testimonials'].map(link => (
                   <li key={link}>
                     <a href={`#${link.toLowerCase()}`} style={{
-                      color: 'rgba(255,255,255,0.7)',
+                      color: 'var(--color-text-muted)',
                       textDecoration: 'none',
                       display: 'flex',
                       alignItems: 'center',
@@ -190,10 +190,10 @@ export default function Footer() {
                       fontSize: '0.95rem',
                       transition: 'color 0.2s'
                     }}
-                    onMouseEnter={e => e.currentTarget.style.color = '#fff'}
+                    onMouseEnter={e => e.currentTarget.style.color = 'var(--color-bg-card)'}
                     onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}
                     >
-                      <Star size={12} color="#3B5BDB" fill="#3B5BDB" /> {link}
+                      <Star size={12} color="var(--color-accent)" fill="var(--color-accent)" /> {link}
                     </a>
                   </li>
                 ))}
@@ -202,12 +202,12 @@ export default function Footer() {
 
             {/* RESOURCES */}
             <div>
-              <h4 style={{ color: '#fff', marginBottom: '1.5rem', fontSize: '1rem', fontWeight: 500 }}>RESOURCES</h4>
+              <h4 style={{ color: 'var(--color-text-main)', marginBottom: '1.5rem', fontSize: '1rem', fontWeight: 500 }}>RESOURCES</h4>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {['Download CV', 'Website Templates', 'Monthly Newsletter', 'Atlas Labs', 'Studio IX'].map(link => (
                   <li key={link}>
                     <a href="#" style={{
-                      color: 'rgba(255,255,255,0.7)',
+                      color: 'var(--color-text-muted)',
                       textDecoration: 'none',
                       display: 'flex',
                       alignItems: 'center',
@@ -215,10 +215,10 @@ export default function Footer() {
                       fontSize: '0.95rem',
                       transition: 'color 0.2s'
                     }}
-                    onMouseEnter={e => e.currentTarget.style.color = '#fff'}
+                    onMouseEnter={e => e.currentTarget.style.color = 'var(--color-bg-card)'}
                     onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}
                     >
-                      <Star size={12} color="#3B5BDB" fill="#3B5BDB" /> {link}
+                      <Star size={12} color="var(--color-accent)" fill="var(--color-accent)" /> {link}
                     </a>
                   </li>
                 ))}
@@ -234,21 +234,21 @@ export default function Footer() {
           alignItems: 'flex-end',
           flexWrap: 'wrap',
           gap: '2rem',
-          borderTop: '1px solid rgba(255,255,255,0.08)',
+          borderTop: '1px solid var(--color-border)',
           paddingTop: '2rem'
         }}>
           <div>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.75rem', marginBottom: '0.5rem', letterSpacing: '0.05em' }}>ALL RIGHTS RESERVED.</p>
-            <h3 style={{ fontSize: '1.5rem', fontWeight: 500, margin: 0, color: 'rgba(255,255,255,0.9)' }}>
+            <p style={{ color: 'var(--color-text-muted)', fontSize: '0.75rem', marginBottom: '0.5rem', letterSpacing: '0.05em' }}>ALL RIGHTS RESERVED.</p>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 500, margin: 0, color: 'var(--color-text-main)' }}>
               © {new Date().getFullYear()} SHAMMIKA DINESH
             </h3>
           </div>
           
           <div style={{ display: 'flex', alignItems: 'flex-end', gap: '3rem', flexWrap: 'wrap' }}>
             <div>
-              <p style={{ color: '#fff', fontSize: '0.95rem', marginBottom: '0.75rem', fontWeight: 500 }}>LOCAL TIME</p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem' }}>
-                <Star size={12} color="#3B5BDB" fill="#3B5BDB" /> {time}
+              <p style={{ color: 'var(--color-text-main)', fontSize: '0.95rem', marginBottom: '0.75rem', fontWeight: 500 }}>LOCAL TIME</p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-text-muted)', fontSize: '0.85rem' }}>
+                <Star size={12} color="var(--color-accent)" fill="var(--color-accent)" /> {time}
               </div>
             </div>
             
@@ -259,8 +259,8 @@ export default function Footer() {
                 width: 44,
                 height: 44,
                 borderRadius: '50%',
-                background: '#3B5BDB',
-                color: '#fff',
+                background: 'var(--color-accent)',
+                color: 'var(--color-text-main)',
                 border: 'none',
                 display: 'flex',
                 alignItems: 'center',
@@ -271,11 +271,11 @@ export default function Footer() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.background = '#324db8';
+                e.currentTarget.style.background = '#145c53';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.background = '#3B5BDB';
+                e.currentTarget.style.background = 'var(--color-accent)';
               }}
             >
               <ArrowUp size={20} />
