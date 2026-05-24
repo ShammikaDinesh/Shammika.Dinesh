@@ -153,7 +153,7 @@ export default function About() {
                 }}
               >
                 <img
-                  src="/about-photo.jpg"
+                  src="/about-photo.jpg.jpeg"
                   alt="Shammika Dinesh Wijethunga"
                   style={{
                     width: '100%',
