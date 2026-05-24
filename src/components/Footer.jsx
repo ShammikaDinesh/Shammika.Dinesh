@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Globe, MessageCircle, Zap, Star, ArrowUp } from 'lucide-react';
+import { Globe, MessageCircle, Star, ArrowUp } from 'lucide-react';
 
 const GithubIcon = ({ size }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -129,47 +129,28 @@ export default function Footer() {
               LET'S MAKE IT<br />HAPPEN NOW
             </h2>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <button style={{
-                background: 'var(--color-accent)', // var(--color-accent) typically
-                color: 'var(--color-text-main)',
-                border: 'none',
-                padding: '0.8rem 1.75rem',
-                borderRadius: 999,
-                fontWeight: 500,
-                fontSize: '0.95rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                cursor: 'pointer',
-                transition: 'background 0.2s'
-              }}
-              onMouseEnter={e => e.currentTarget.style.background = '#A66A2C'}
-              onMouseLeave={e => e.currentTarget.style.background = 'var(--color-accent)'}
+              <a
+                href="tel:+94703461414"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  background: 'var(--color-accent)',
+                  color: '#ffffff',
+                  border: 'none',
+                  padding: '0.8rem 1.75rem',
+                  borderRadius: 999,
+                  fontWeight: 600,
+                  fontSize: '0.95rem',
+                  cursor: 'pointer',
+                  textDecoration: 'none',
+                  transition: 'background 0.2s',
+                }}
+                onMouseEnter={e => e.currentTarget.style.background = '#A66A2C'}
+                onMouseLeave={e => e.currentTarget.style.background = 'var(--color-accent)'}
               >
-                <Zap size={16} fill="currentColor" /> Start Now
-              </button>
-              <button style={{
-                background: 'transparent',
-                color: 'var(--color-text-main)',
-                border: '1px solid var(--color-border)',
-                padding: '0.8rem 1.75rem',
-                borderRadius: 999,
-                fontWeight: 500,
-                fontSize: '0.95rem',
-                cursor: 'pointer',
-                transition: 'background 0.2s, border-color 0.2s'
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.background = 'transparent';
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
-              }}
-              >
-                Book a call
-              </button>
+                +94 70 3461414
+              </a>
             </div>
           </div>
 
