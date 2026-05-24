@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { MapPin, Calendar, GraduationCap } from 'lucide-react';
 
 const educationData = [
@@ -7,7 +7,7 @@ const educationData = [
     degree: 'Higher Diploma in Software Engineering',
     institute: 'National Institute of Business Management (NIBM)',
     location: 'Kandy, Sri Lanka',
-    date: 'December 2022 — Present',
+    date: 'Dec 2022 — Dec 2023',
     subjects: [
       'Robotic Application Development',
       'Programming Data Structures and Algorithms - 1',
@@ -40,7 +40,25 @@ const educationData = [
       'Introduction to Computer Science',
       'Introduction to IOT',
       'Mathematics for Computing',
+      'Networking Fundamental',
+      'SEO & Digital Marketing ',
+      'System Analysis and Design ',
+      'System Essentials',
     ],
+  },
+  {
+    degree: 'Certificate in Software Engineering',
+    institute: 'National Institute of Business Management (NIBM), Kandy, Sri Lanka',
+    location: 'Kandy, Sri Lanka',
+    date: 'April 2021 — August 2021',
+    subjects: [],
+  },
+  {
+    degree: 'Diploma in English Language',
+    institute: 'British Way English Academy, Nittambuwa, Sri Lanka',
+    location: 'Nittambuwa, Sri Lanka',
+    date: 'August 2019 — November 2019',
+    subjects: [],
   },
 ];
 
@@ -49,27 +67,7 @@ function EducationCard({ edu }) {
   const cardInView = useInView(cardRef, { once: true, margin: '-100px' });
 
   return (
-    <div style={{ position: 'relative', marginBottom: '3rem' }}>
-      {/* Timeline Node */}
-      <motion.div
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ type: 'spring', stiffness: 300, damping: 15, delay: 0.3 }}
-        style={{
-          position: 'absolute',
-          left: -50,
-          top: 24,
-          width: 24,
-          height: 24,
-          borderRadius: '50%',
-          background: 'var(--color-accent)',
-          border: '4px solid var(--color-bg-main)',
-          zIndex: 2,
-        }}
-      />
-
-      {/* Education Card */}
+    <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
       <motion.div
         ref={cardRef}
         initial={{ opacity: 0, y: 40 }}
@@ -82,6 +80,7 @@ function EducationCard({ edu }) {
           borderTop: '4px solid var(--color-border)',
           boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
           maxWidth: 640,
+          width: '100%',
         }}
       >
         {/* Degree Title */}
@@ -161,48 +160,49 @@ function EducationCard({ edu }) {
           </span>
         </div>
 
-        {/* Subjects */}
-        <ul
-          style={{
-            listStyle: 'none',
-            padding: 0,
-            margin: 0,
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-            gap: '0.5rem 1rem',
-          }}
-        >
-          {edu.subjects.map((item, i) => (
-            <motion.li
-              key={i}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.5 + i * 0.05 }}
-              style={{
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: 10,
-                fontSize: '0.95rem',
-                color: 'var(--color-text-muted)',
-                lineHeight: 1.6,
-              }}
-            >
-              <span
+        {edu.subjects.length > 0 && (
+          <ul
+            style={{
+              listStyle: 'none',
+              padding: 0,
+              margin: 0,
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+              gap: '0.5rem 1rem',
+            }}
+          >
+            {edu.subjects.map((item, i) => (
+              <motion.li
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 + i * 0.05 }}
                 style={{
-                  display: 'inline-block',
-                  width: 6,
-                  height: 6,
-                  borderRadius: '50%',
-                  background: 'var(--color-accent)',
-                  marginTop: 8,
-                  flexShrink: 0,
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: 10,
+                  fontSize: '0.95rem',
+                  color: 'var(--color-text-muted)',
+                  lineHeight: 1.6,
                 }}
-              />
-              {item}
-            </motion.li>
-          ))}
-        </ul>
+              >
+                <span
+                  style={{
+                    display: 'inline-block',
+                    width: 6,
+                    height: 6,
+                    borderRadius: '50%',
+                    background: 'var(--color-accent)',
+                    marginTop: 8,
+                    flexShrink: 0,
+                  }}
+                />
+                {item}
+              </motion.li>
+            ))}
+          </ul>
+        )}
       </motion.div>
     </div>
   );
@@ -210,14 +210,6 @@ function EducationCard({ edu }) {
 
 export default function Education() {
   const sectionRef = useRef(null);
-  const timelineRef = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start 80%', 'end 60%'],
-  });
-
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
     <section
@@ -229,7 +221,6 @@ export default function Education() {
     >
       <div className="section">
         <div className="section-inner">
-          {/* Section Title */}
           <motion.h2
             className="section-title"
             initial={{ opacity: 0, y: 30 }}
@@ -240,54 +231,13 @@ export default function Education() {
             Education
           </motion.h2>
 
-          {/* Timeline Container */}
-          <div
-            style={{
-              position: 'relative',
-              paddingLeft: 60,
-              marginTop: '2rem',
-            }}
-            className="education-timeline"
-          >
-            {/* Animated Timeline Line */}
-            <div
-              ref={timelineRef}
-              style={{
-                position: 'absolute',
-                left: 20,
-                top: 0,
-                bottom: 0,
-                width: 3,
-                background: 'var(--color-bg-badge)',
-                borderRadius: 2,
-              }}
-            >
-              <motion.div
-                style={{
-                  width: '100%',
-                  background: 'var(--color-accent)',
-                  borderRadius: 2,
-                  height: lineHeight,
-                }}
-              />
-            </div>
-
-            {/* Render Education Cards */}
+          <div style={{ marginTop: '2rem' }}>
             {educationData.map((edu, i) => (
               <EducationCard key={i} edu={edu} />
             ))}
           </div>
         </div>
       </div>
-
-      {/* Responsive */}
-      <style>{`
-        @media (max-width: 600px) {
-          .education-timeline {
-            padding-left: 40px !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }
