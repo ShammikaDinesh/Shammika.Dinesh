@@ -98,7 +98,7 @@ export default function Skills() {
                 viewport={{ once: true, margin: '-60px' }}
                 whileHover={{
                   y: -6,
-                  boxShadow: '0 12px 40px rgba(22,38,96,0.12)',
+                  boxShadow: '0 12px 40px rgba(0,0,0,0.12)',
                 }}
                 style={{
                   background: 'var(--color-bg-card)',
@@ -107,16 +107,16 @@ export default function Skills() {
                   borderLeft: '4px solid var(--color-border)',
                   cursor: 'default',
                   transition: 'box-shadow 0.3s, border-color 0.3s',
-                  boxShadow: '0 2px 12px rgba(22,38,96,0.05)',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.05)',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderLeftColor = 'var(--color-accent)';
                   e.currentTarget.style.boxShadow =
-                    '0 12px 40px rgba(22,38,96,0.12), -4px 0 20px rgba(59,91,219,0.15)';
+                    '0 12px 40px rgba(0,0,0,0.12), -4px 0 20px rgba(200,132,58,0.15)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.borderLeftColor = 'var(--color-border)';
-                  e.currentTarget.style.boxShadow = '0 2px 12px rgba(22,38,96,0.05)';
+                  e.currentTarget.style.boxShadow = '0 2px 12px rgba(0,0,0,0.05)';
                 }}
               >
                 <Icon

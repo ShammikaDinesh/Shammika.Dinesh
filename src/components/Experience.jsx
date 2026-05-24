@@ -66,7 +66,7 @@ function ExperienceCard({ exp, index }) {
           borderRadius: 16,
           padding: '2rem 2.5rem',
           borderTop: '4px solid var(--color-border)',
-          boxShadow: '0 4px 20px rgba(22,38,96,0.06)',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
           maxWidth: 640,
         }}
       >

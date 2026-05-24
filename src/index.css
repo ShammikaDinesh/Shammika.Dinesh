@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════
-   DESIGN SYSTEM — Warm Charcoal · Golden Orange · Ivory
+   DESIGN SYSTEM — Deep Charcoal · Dark Mocha · Warm Amber
    ═══════════════════════════════════════════════════ */
 
 @theme {
-  --color-bg-main: #0a0f1e;
-  --color-bg-card: #0f1628;
-  --color-bg-badge: #0d1220;
-  --color-text-main: #ffffff;
-  --color-text-muted: #a0aec0;
-  --color-accent: #3b9eff;
-  --color-border: #1e2a45;
+  --color-bg-main: #1A1714;
+  --color-bg-card: #2C2520;
+  --color-bg-badge: #2C2520;
+  --color-text-main: #F5F0E8;
+  --color-text-muted: #8A7A6A;
+  --color-accent: #C8843A;
+  --color-border: #3D352F;
 }
 
 /* ─── Base Reset & Globals ─── */
@@ -26,8 +26,8 @@ body {
   color: var(--color-text-main);
   background-color: var(--color-bg-main);
   background-image: 
-    linear-gradient(135deg, rgba(59, 158, 255, 0.05) 0%, transparent 100%),
-    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 40px);
+    linear-gradient(135deg, rgba(200, 132, 58, 0.05) 0%, transparent 100%),
+    repeating-linear-gradient(-45deg, rgba(245, 240, 232, 0.015) 0px, rgba(245, 240, 232, 0.015) 1px, transparent 1px, transparent 40px);
   background-attachment: fixed;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -62,7 +62,7 @@ p {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-royal-blue-light);
+  background: var(--color-accent);
 }
 
 /* ─── Selection ─── */

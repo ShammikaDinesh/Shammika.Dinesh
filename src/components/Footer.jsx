@@ -62,7 +62,7 @@ export default function Footer() {
         right: 0,
         width: '80%',
         height: '100%',
-        background: 'radial-gradient(circle at bottom right, rgba(59,158,255,0.15) 0%, transparent 60%)',
+        background: 'radial-gradient(circle at bottom right, rgba(200,132,58,0.15) 0%, transparent 60%)',
         pointerEvents: 'none',
         zIndex: 0
       }} />
@@ -143,7 +143,7 @@ export default function Footer() {
                 cursor: 'pointer',
                 transition: 'background 0.2s'
               }}
-              onMouseEnter={e => e.currentTarget.style.background = '#226bba'}
+              onMouseEnter={e => e.currentTarget.style.background = '#A66A2C'}
               onMouseLeave={e => e.currentTarget.style.background = 'var(--color-accent)'}
               >
                 <Zap size={16} fill="currentColor" /> Start Now
@@ -271,7 +271,7 @@ export default function Footer() {
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.background = '#226bba';
+                e.currentTarget.style.background = '#A66A2C';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.transform = 'translateY(0)';

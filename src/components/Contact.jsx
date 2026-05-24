@@ -85,7 +85,7 @@ export default function Contact() {
               borderRadius: 20,
               padding: '2.5rem 2.5rem 2rem',
               borderTop: '4px solid var(--color-border)',
-              boxShadow: '0 8px 40px rgba(22,38,96,0.08)',
+              boxShadow: '0 8px 40px rgba(0,0,0,0.08)',
               marginTop: '1rem',
             }}
           >
@@ -224,7 +224,7 @@ export default function Contact() {
                   background: 'var(--color-bg-card)',
                   color: 'var(--color-text-muted)',
                   transition: 'color 0.3s, box-shadow 0.3s',
-                  boxShadow: '0 2px 12px rgba(22,38,96,0.06)',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
                   textDecoration: 'none',
                 }}
                 aria-label={label}

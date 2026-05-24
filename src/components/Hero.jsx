@@ -168,7 +168,7 @@ export default function Hero() {
             background: 'var(--color-bg-main)',
             border: '4px solid var(--color-accent)',
             overflow: 'hidden',
-            boxShadow: '0 20px 60px rgba(22,38,96,0.12)',
+            boxShadow: '0 20px 60px rgba(0,0,0,0.12)',
           }}
         >
           <img
@@ -290,7 +290,7 @@ export default function Hero() {
               fontSize: '0.95rem',
               border: 'none',
               cursor: 'pointer',
-              boxShadow: '0 4px 20px rgba(22,38,96,0.25)',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.25)',
             }}
           >
             Get in Touch

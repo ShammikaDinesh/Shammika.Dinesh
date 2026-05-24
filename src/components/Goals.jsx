@@ -116,7 +116,7 @@ export default function Goals() {
                     borderRadius: 16,
                     padding: '2rem 1.75rem',
                     borderTop: '4px solid var(--color-border)',
-                    boxShadow: '0 4px 24px rgba(22,38,96,0.06)',
+                    boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
                     height: '100%',
                     cursor: 'default',
                     position: 'relative',
