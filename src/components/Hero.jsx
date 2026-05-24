@@ -236,9 +236,9 @@ export default function Hero() {
             letterSpacing: '-0.03em',
           }}
         >
-          Hero Section
+          Shammika
           <br />
-          Web Design
+          Dinesh Wijethunga
         </motion.h1>
 
         {/* Subheading */}
@@ -252,45 +252,9 @@ export default function Hero() {
             maxWidth: 480,
           }}
         >
-          Drives visitors to take action, tells your story and grab action of the right audience
+          I am an IT Professional and aspiring Software Engineer based in Sri Lanka, passionate about healthcare technology, system administration, and building innovative digital solutions. With hands-on experience in IT infrastructure, technical support, and healthcare systems, I enjoy solving real-world problems through technology while continuously improving my skills in software engineering, cloud technologies, and modern web development.
         </motion.p>
-
-        {/* CTA Button */}
-        <motion.div variants={fadeUp}>
-          <motion.a
-            href="#about"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.75rem',
-              padding: '0.6rem 2.2rem 0.6rem 0.6rem',
-              background: 'var(--color-accent)',
-              color: '#ffffff',
-              borderRadius: 999,
-              textDecoration: 'none',
-              fontWeight: 800,
-              fontSize: '1.1rem',
-              border: 'none',
-              cursor: 'pointer',
-              boxShadow: '0 8px 24px rgba(208, 139, 56, 0.35)',
-            }}
-          >
-            <span
-              style={{
-                width: 38,
-                height: 38,
-                borderRadius: '50%',
-                backgroundColor: '#ffffff',
-                display: 'inline-block',
-                flexShrink: 0,
-              }}
-            />
-            ORDER NOW
-          </motion.a>
         </motion.div>
-      </motion.div>
 
       {/* ── Scroll Indicator ── */}
       <div
