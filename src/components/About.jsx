@@ -1,58 +1,5 @@
-import { useRef, useEffect, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
-
-/* ── Animated Counter ── */
-function Counter({ target, label, suffix = '' }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
-  const [count, setCount] = useState(0);
-  const animating = useRef(false);
-
-  useEffect(() => {
-    if (!inView || animating.current) return;
-    animating.current = true;
-    const end = typeof target === 'number' ? target : parseInt(target, 10);
-    if (isNaN(end)) return;
-    const duration = 1800;
-    const step = Math.ceil(duration / end);
-    const timer = setInterval(() => {
-      setCount((prev) => {
-        const next = prev + 1;
-        if (next >= end) clearInterval(timer);
-        return next >= end ? end : next;
-      });
-    }, step);
-    return () => clearInterval(timer);
-  }, [inView, target]);
-
-  return (
-    <div ref={ref} style={{ textAlign: 'center' }}>
-      <p
-        style={{
-          fontFamily: 'var(--font-display)',
-          fontSize: '2.5rem',
-          fontWeight: 800,
-          color: 'var(--color-text-main)',
-          margin: 0,
-          lineHeight: 1,
-        }}
-      >
-        {typeof target === 'number' ? count : target}
-        {suffix}
-      </p>
-      <p
-        style={{
-          fontSize: '0.85rem',
-          fontWeight: 500,
-          color: 'var(--color-text-muted)',
-          marginTop: 6,
-        }}
-      >
-        {label}
-      </p>
-    </div>
-  );
-}
+import { useRef } from 'react';
+import { motion } from 'framer-motion';
 
 /* ── Ticker Items ── */
 const tickerItems = [
@@ -178,55 +125,9 @@ export default function About() {
                 viewport={{ once: true, margin: '-60px' }}
                 style={{ fontSize: '1.05rem', marginBottom: '1rem' }}
               >
-                I'm Shammika Dinesh Wijethunga, an IT professional with over 5 years of
-                hands-on experience in system administration, network operations, and
-                healthcare technology. Based in Sri Lanka, I specialize in keeping
-                critical systems running smoothly and securely.
-              </motion.p>
-              <motion.p
-                variants={fadeUp(0.15)}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: '-60px' }}
-                style={{ fontSize: '1.05rem', marginBottom: '1rem' }}
-              >
-                Currently serving as an IT Assistant at HEMAS Hospitals, I manage
-                hardware and software troubleshooting, network monitoring, CCTV
-                infrastructure, and data protection processes. My mission is to bridge
-                the gap between technology and healthcare, ensuring patient data stays
-                safe and systems stay operational.
-              </motion.p>
-              <motion.p
-                variants={fadeUp(0.3)}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: '-60px' }}
-                style={{ fontSize: '1.05rem', marginBottom: '2.5rem' }}
-              >
-                Beyond my hospital role, I'm passionate about web design, digital
-                solutions, and building a tech business that can make a real difference
-                in people's lives.
+               I am an IT Professional and aspiring Software Engineer based in Sri Lanka, passionate about healthcare technology, system administration, and building innovative digital solutions. With hands-on experience in IT infrastructure, technical support, and healthcare systems, I enjoy solving real-world problems through technology while continuously improving my skills in software engineering, cloud technologies, and modern web development.
               </motion.p>
 
-              {/* Stat Counters */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(3, 1fr)',
-                  gap: '1.5rem',
-                  padding: '1.5rem',
-                  background: 'var(--color-bg-badge)',
-                  borderRadius: 16,
-                }}
-              >
-                <Counter target={5} suffix="+" label="Years Experience" />
-                <Counter target={1} suffix="" label="Healthcare IT Role" />
-                <Counter target="∞" label="Passion for Tech" />
-              </motion.div>
             </div>
           </div>
         </div>

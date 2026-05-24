@@ -207,21 +207,7 @@ export default function Hero() {
         initial="hidden"
         animate="show"
       >
-        {/* Brand Name */}
-        <motion.p
-          variants={fadeUp}
-          style={{
-            fontFamily: 'monospace',
-            fontSize: '0.85rem',
-            color: 'var(--color-accent)',
-            letterSpacing: '0.15em',
-            textTransform: 'uppercase',
-            marginBottom: '0.75rem',
-            fontWeight: 600,
-          }}
-        >
-          
-        </motion.p>
+
 
         {/* Headline */}
         <motion.h1
@@ -252,7 +238,7 @@ export default function Hero() {
             maxWidth: 480,
           }}
         >
-          I am an IT Professional and aspiring Software Engineer based in Sri Lanka, passionate about healthcare technology, system administration, and building innovative digital solutions. With hands-on experience in IT infrastructure, technical support, and healthcare systems, I enjoy solving real-world problems through technology while continuously improving my skills in software engineering, cloud technologies, and modern web development.
+          IT Professional specializing in system administration, IT infrastructure, and modern digital solutions, with a growing focus on Software Engineering and emerging technologies.
         </motion.p>
         </motion.div>
 
