@@ -54,7 +54,6 @@ function ExperienceCard({ exp }) {
         }}
       />
 
-      {/* Experience Card */}
        {/* Experience Card */}
       <motion.div
         ref={cardRef}

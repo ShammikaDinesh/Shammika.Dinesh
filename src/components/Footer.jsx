@@ -179,9 +179,9 @@ export default function Footer() {
             <div>
               <h4 style={{ color: 'var(--color-text-main)', marginBottom: '1.5rem', fontSize: '1rem', fontWeight: 500 }}>NAVIGATE</h4>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                {['Home', 'About', 'Experience', 'Education', 'Skills', 'Vision'].map(link => (
-                  <li key={link}>
-                    <a href={`#${link.toLowerCase()}`} style={{
+                {[{ label: 'Home', href: '#hero' }, { label: 'About', href: '#about' }, { label: 'Experience', href: '#experience' }, { label: 'Education', href: '#education' }, { label: 'Skills', href: '#skills' }, { label: 'Vision', href: '#goals' }].map(({ label, href }) => (
+                  <li key={label}>
+                    <a href={href} style={{
                       color: 'var(--color-text-muted)',
                       textDecoration: 'none',
                       display: 'flex',
@@ -190,10 +190,10 @@ export default function Footer() {
                       fontSize: '0.95rem',
                       transition: 'color 0.2s'
                     }}
-                    onMouseEnter={e => e.currentTarget.style.color = 'var(--color-bg-card)'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}
+                    onMouseEnter={e => e.currentTarget.style.color = 'var(--color-accent)'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'var(--color-text-muted)'}
                     >
-                      <Star size={12} color="var(--color-accent)" fill="var(--color-accent)" /> {link}
+                      <Star size={12} color="var(--color-accent)" fill="var(--color-accent)" /> {label}
                     </a>
                   </li>
                 ))}
@@ -215,8 +215,8 @@ export default function Footer() {
                       fontSize: '0.95rem',
                       transition: 'color 0.2s'
                     }}
-                    onMouseEnter={e => e.currentTarget.style.color = 'var(--color-bg-card)'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}
+                    onMouseEnter={e => e.currentTarget.style.color = 'var(--color-accent)'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'var(--color-text-muted)'}
                     >
                       <Star size={12} color="var(--color-accent)" fill="var(--color-accent)" /> {link}
                     </a>
