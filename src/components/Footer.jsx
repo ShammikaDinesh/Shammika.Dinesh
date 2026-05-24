@@ -149,7 +149,7 @@ export default function Footer() {
                 onMouseEnter={e => e.currentTarget.style.background = '#A66A2C'}
                 onMouseLeave={e => e.currentTarget.style.background = 'var(--color-accent)'}
               >
-                +94 70 3461414
+                Call Us
               </a>
             </div>
           </div>
