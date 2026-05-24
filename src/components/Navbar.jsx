@@ -4,11 +4,9 @@ import { Menu, X } from 'lucide-react';
 
 const navLinks = [
   { id: 'hero', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'education', label: 'Education' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'goals', label: 'Vision' },
+  { id: 'about', label: 'About Us' },
+  { id: 'price', label: 'Price' },
+  { id: 'login', label: 'Login' },
 ];
 
 export default function Navbar() {
@@ -16,17 +14,16 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('hero');
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  /* ── scroll detection ── */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  /* ── active section tracking via IntersectionObserver ── */
   useEffect(() => {
+    const validIds = navLinks.filter(({ id }) => document.getElementById(id));
     const observers = [];
-    navLinks.forEach(({ id }) => {
+    validIds.forEach(({ id }) => {
       const el = document.getElementById(id);
       if (!el) return;
       const obs = new IntersectionObserver(
@@ -41,7 +38,6 @@ export default function Navbar() {
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
-  /* ── lock body scroll when drawer open ── */
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -49,12 +45,14 @@ export default function Navbar() {
 
   const scrollTo = (id) => {
     setMobileOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
     <>
-      {/* ── Desktop / Sticky Navbar ── */}
       <motion.nav
         id="main-nav"
         initial={{ y: -80 }}
@@ -71,11 +69,10 @@ export default function Navbar() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          background: scrolled ? 'rgba(13, 18, 32, 0.95)' : 'transparent',
+          background: scrolled ? 'rgba(15, 15, 15, 0.9)' : 'transparent',
           backdropFilter: scrolled ? 'blur(12px)' : 'none',
           borderBottom: scrolled ? '1px solid var(--color-border)' : '1px solid transparent',
-          boxShadow: scrolled ? '0 4px 30px rgba(0, 0, 0, 0.3)' : 'none',
-          transition: 'background 0.4s, border-bottom 0.4s, box-shadow 0.4s',
+          transition: 'background 0.4s, border-bottom 0.4s',
         }}
       >
         {/* Logo */}
@@ -92,79 +89,106 @@ export default function Navbar() {
             letterSpacing: '0.04em',
           }}
         >
-          Shammika.dev
+          Wardiere Inc.
         </button>
 
-        {/* Desktop Links */}
-        <ul
-          style={{
-            display: 'flex',
-            gap: '2rem',
-            listStyle: 'none',
-            margin: 0,
-            padding: 0,
-          }}
-          className="nav-desktop-links"
-        >
-          {navLinks.map(({ id, label }) => (
-            <li key={id}>
-              <button
-                id={`nav-link-${id}`}
-                onClick={() => scrollTo(id)}
-                style={{
-                  position: 'relative',
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontFamily: 'var(--font-body)',
-                  fontSize: '0.9rem',
-                  fontWeight: 500,
-                  color: activeSection === id ? 'var(--color-text-main)' : 'var(--color-text-muted)',
-                  padding: '0.25rem 0',
-                  transition: 'color 0.3s',
-                }}
-              >
-                {label}
-                {/* Animated underline */}
-                <motion.span
+        {/* Desktop Links + CTA */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+          <ul
+            style={{
+              display: 'flex',
+              gap: '2rem',
+              listStyle: 'none',
+              margin: 0,
+              padding: 0,
+            }}
+            className="nav-desktop-links"
+          >
+            {navLinks.map(({ id, label }) => (
+              <li key={id}>
+                <button
+                  id={`nav-link-${id}`}
+                  onClick={() => scrollTo(id)}
                   style={{
-                    position: 'absolute',
-                    bottom: -2,
-                    left: 0,
-                    height: 2,
-                    background: 'var(--color-accent)',
-                    borderRadius: 1,
+                    position: 'relative',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '0.9rem',
+                    fontWeight: 500,
+                    color: activeSection === id ? 'var(--color-text-main)' : 'var(--color-text-muted)',
+                    padding: '0.25rem 0',
+                    transition: 'color 0.3s',
                   }}
-                  animate={{ width: activeSection === id ? '100%' : '0%' }}
-                  transition={{ duration: 0.3 }}
-                />
-              </button>
-            </li>
-          ))}
-        </ul>
+                >
+                  {label}
+                  <motion.span
+                    style={{
+                      position: 'absolute',
+                      bottom: -2,
+                      left: 0,
+                      height: 2,
+                      background: 'var(--color-accent)',
+                      borderRadius: 1,
+                    }}
+                    animate={{ width: activeSection === id ? '100%' : '0%' }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </button>
+              </li>
+            ))}
+          </ul>
 
-        {/* Mobile Hamburger */}
-        <button
-          id="nav-hamburger"
-          onClick={() => setMobileOpen(true)}
-          className="nav-mobile-btn"
-          style={{
-            display: 'none',
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            color: 'var(--color-text-main)',
-          }}
-        >
-          <Menu size={28} />
-        </button>
+          {/* Start for free — bordered CTA */}
+          <button
+            className="nav-cta-desktop"
+            style={{
+              padding: '0.5rem 1.5rem',
+              borderRadius: 999,
+              border: '1.5px solid var(--color-text-main)',
+              background: 'transparent',
+              color: 'var(--color-text-main)',
+              fontFamily: 'var(--font-body)',
+              fontSize: '0.85rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              transition: 'background 0.2s, color 0.2s',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'var(--color-text-main)';
+              e.currentTarget.style.color = 'var(--color-bg-main)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.color = 'var(--color-text-main)';
+            }}
+          >
+            Start for free
+          </button>
+
+          {/* Mobile Hamburger */}
+          <button
+            id="nav-hamburger"
+            onClick={() => setMobileOpen(true)}
+            className="nav-mobile-btn"
+            style={{
+              display: 'none',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              color: 'var(--color-text-main)',
+            }}
+          >
+            <Menu size={28} />
+          </button>
+        </div>
       </motion.nav>
 
       {/* ── Mobile Drawer ── */}
       <AnimatePresence>
         {mobileOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -177,7 +201,6 @@ export default function Navbar() {
                 zIndex: 1001,
               }}
             />
-            {/* Drawer */}
             <motion.div
               id="mobile-drawer"
               initial={{ x: '100%' }}
@@ -213,7 +236,7 @@ export default function Navbar() {
                 <X size={28} />
               </button>
 
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, flex: 1 }}>
                 {navLinks.map(({ id, label }, i) => (
                   <motion.li
                     key={id}
@@ -241,15 +264,33 @@ export default function Navbar() {
                   </motion.li>
                 ))}
               </ul>
+
+              {/* Mobile CTA */}
+              <button
+                style={{
+                  width: '100%',
+                  padding: '0.85rem',
+                  borderRadius: 999,
+                  border: '1.5px solid var(--color-text-main)',
+                  background: 'transparent',
+                  color: 'var(--color-text-main)',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '1rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                }}
+              >
+                Start for free
+              </button>
             </motion.div>
           </>
         )}
       </AnimatePresence>
 
-      {/* ── Responsive Style ── */}
       <style>{`
         @media (max-width: 768px) {
           .nav-desktop-links { display: none !important; }
+          .nav-cta-desktop { display: none !important; }
           .nav-mobile-btn { display: block !important; }
         }
       `}</style>
