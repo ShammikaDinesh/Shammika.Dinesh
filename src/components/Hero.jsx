@@ -220,7 +220,7 @@ export default function Hero() {
             fontWeight: 600,
           }}
         >
-          Wardiere Inc.
+          
         </motion.p>
 
         {/* Headline */}
@@ -228,7 +228,7 @@ export default function Hero() {
           variants={fadeUp}
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(3rem, 7vw, 6.5rem)',
+            fontSize: 'clamp(2.5rem, 5vw, 3rem)',
             fontWeight: 900,
             color: 'var(--color-text-main)',
             margin: '0 0 1.5rem',
