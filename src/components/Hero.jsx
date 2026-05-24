@@ -172,7 +172,7 @@ export default function Hero() {
           }}
         >
           <img
-            src="/SD.jpeg"
+            src="/hero-photo.jpg"
             alt="Shammika Dinesh Wijethunga"
             style={{
               width: '100%',
