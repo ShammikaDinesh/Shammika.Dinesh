@@ -262,10 +262,8 @@ export default function Hero() {
             maxWidth: 520,
           }}
         >
-          An experienced IT professional based in Sri Lanka, passionate about
-          healthcare technology, system administration, and building innovative
-          digital solutions.
-        </motion.p>
+          I am an IT Professional and aspiring Software Engineer based in Sri Lanka, passionate about healthcare technology, system administration, and building innovative digital solutions. With hands-on experience in IT infrastructure, technical support, and healthcare systems, I enjoy solving real-world problems through technology while continuously improving my skills in software engineering, cloud technologies, and modern web development.
+        </motion.p
 
         {/* CTAs */}
         <motion.div
@@ -292,8 +290,9 @@ export default function Hero() {
               cursor: 'pointer',
               boxShadow: '0 4px 20px rgba(0,0,0,0.25)',
             }}
+
           >
-            Get in Touch
+            
           </motion.a>
           <motion.a
             href="#about"
