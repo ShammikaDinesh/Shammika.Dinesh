@@ -5,8 +5,11 @@ import { HeartPulse, Rocket, Globe } from 'lucide-react';
 const goals = [
   {
     icon: HeartPulse,
-    title: 'Healthcare IT Portfolio',
-    desc: 'Documenting and showcasing my journey in healthcare technology at HEMAS Hospitals — building a comprehensive portfolio of systems managed, problems solved, and innovations implemented.',
+    title: 'Software Engineering Journey',
+    desc: 'Currently pursuing Software Engineering,building projects in web development,algorithms, and system designn',
+    
+            
+           
     badge: null,
   },
   {
