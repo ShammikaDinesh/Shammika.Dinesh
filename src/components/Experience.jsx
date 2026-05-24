@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { MapPin, Calendar, Briefcase } from 'lucide-react';
 
 const experiences = [
@@ -7,12 +7,12 @@ const experiences = [
     role: 'IT Assistant',
     company: 'HEMAS Hospitals',
     location: 'Sri Lanka',
-    date: '2019 — Present',
+    date: '2024 Jan — 2024 Dec',
     responsibilities: [
-      'Hardware & software troubleshooting',
-      'Network operations & monitoring',
-      'Healthcare IT systems management',
-      'CCTV infrastructure oversight',
+      'Resolve hardware-software issues (medical & admin systems)',
+      'Maintain network for clinical ops',
+      'Install & configure healthcare IT equipment ',
+      'Managing the operational side of three system ',
       'Data protection & backup processes',
     ],
   },
@@ -20,11 +20,12 @@ const experiences = [
     role: 'Associate System Administrator',
     company: 'Rainco Pvt Ltd',
     location: 'Sri Lanka',
-    date: 'Previous Role',
+    date: '2024 Dec - Present',
     responsibilities: [
       'System administration and IT infrastructure support',
       'Hardware and software configuration',
       'Network troubleshooting and maintenance',
+      'Supporting ERP & SAP project implementation',
     ],
   },
 ];
@@ -34,27 +35,7 @@ function ExperienceCard({ exp }) {
   const cardInView = useInView(cardRef, { once: true, margin: '-100px' });
 
   return (
-    <div style={{ position: 'relative', marginBottom: '3rem' }}>
-      {/* Timeline Node */}
-      <motion.div
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ type: 'spring', stiffness: 300, damping: 15, delay: 0.3 }}
-        style={{
-          position: 'absolute',
-          left: -50,
-          top: 24,
-          width: 24,
-          height: 24,
-          borderRadius: '50%',
-          background: 'var(--color-accent)',
-          border: '4px solid var(--color-bg-main)',
-          zIndex: 2,
-        }}
-      />
-
-       {/* Experience Card */}
+    <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
       <motion.div
         ref={cardRef}
         initial={{ opacity: 0, y: 40 }}
@@ -67,6 +48,7 @@ function ExperienceCard({ exp }) {
           borderTop: '4px solid var(--color-border)',
           boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
           maxWidth: 640,
+          width: '100%',
         }}
       >
         {/* Role Title */}
@@ -193,14 +175,6 @@ function ExperienceCard({ exp }) {
 
 export default function Experience() {
   const sectionRef = useRef(null);
-  const timelineRef = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start 80%', 'end 60%'],
-  });
-
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
     <section
@@ -212,7 +186,6 @@ export default function Experience() {
     >
       <div className="section">
         <div className="section-inner">
-          {/* Section Title */}
           <motion.h2
             className="section-title"
             initial={{ opacity: 0, y: 30 }}
@@ -223,54 +196,13 @@ export default function Experience() {
             Experience
           </motion.h2>
 
-          {/* Timeline Container */}
-          <div
-            style={{
-              position: 'relative',
-              paddingLeft: 60,
-              marginTop: '2rem',
-            }}
-            className="experience-timeline"
-          >
-            {/* Animated Timeline Line */}
-            <div
-              ref={timelineRef}
-              style={{
-                position: 'absolute',
-                left: 20,
-                top: 0,
-                bottom: 0,
-                width: 3,
-                background: 'var(--color-bg-badge)',
-                borderRadius: 2,
-              }}
-            >
-              <motion.div
-                style={{
-                  width: '100%',
-                  background: 'var(--color-accent)',
-                  borderRadius: 2,
-                  height: lineHeight,
-                }}
-              />
-            </div>
-
-            {/* Render Experience Cards */}
+          <div style={{ marginTop: '2rem' }}>
             {experiences.map((exp, i) => (
               <ExperienceCard key={i} exp={exp} />
             ))}
           </div>
         </div>
       </div>
-
-      {/* Responsive */}
-      <style>{`
-        @media (max-width: 600px) {
-          .experience-timeline {
-            padding-left: 40px !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }
