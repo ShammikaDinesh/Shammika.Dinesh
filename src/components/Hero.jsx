@@ -263,7 +263,7 @@ export default function Hero() {
           }}
         >
           I am an IT Professional and aspiring Software Engineer based in Sri Lanka, passionate about healthcare technology, system administration, and building innovative digital solutions. With hands-on experience in IT infrastructure, technical support, and healthcare systems, I enjoy solving real-world problems through technology while continuously improving my skills in software engineering, cloud technologies, and modern web development.
-        </motion.p
+        </motion.p>
 
         {/* CTAs */}
         <motion.div
