@@ -6,18 +6,21 @@ function Counter({ target, label, suffix = '' }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const [count, setCount] = useState(0);
+  const animating = useRef(false);
 
   useEffect(() => {
-    if (!inView) return;
-    let start = 0;
+    if (!inView || animating.current) return;
+    animating.current = true;
     const end = typeof target === 'number' ? target : parseInt(target, 10);
-    if (isNaN(end)) { setCount(target); return; }
+    if (isNaN(end)) return;
     const duration = 1800;
     const step = Math.ceil(duration / end);
     const timer = setInterval(() => {
-      start += 1;
-      setCount(start);
-      if (start >= end) clearInterval(timer);
+      setCount((prev) => {
+        const next = prev + 1;
+        if (next >= end) clearInterval(timer);
+        return next >= end ? end : next;
+      });
     }, step);
     return () => clearInterval(timer);
   }, [inView, target]);

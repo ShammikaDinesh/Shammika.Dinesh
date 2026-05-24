@@ -5,8 +5,9 @@ import { Menu, X } from 'lucide-react';
 const navLinks = [
   { id: 'hero', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
   { id: 'experience', label: 'Experience' },
+  { id: 'education', label: 'Education' },
+  { id: 'skills', label: 'Skills' },
   { id: 'goals', label: 'Vision' },
   { id: 'contact', label: 'Contact' },
 ];

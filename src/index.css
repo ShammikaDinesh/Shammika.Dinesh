@@ -86,24 +86,24 @@ p {
 
 /* ─── Section Spacing ─── */
 .section {
-  padding: 6rem 1.5rem;
+  padding: 4rem 1.5rem;
   position: relative;
 }
 
 @media (min-width: 768px) {
   .section {
-    padding: 8rem 3rem;
+    padding: 5rem 3rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section {
-    padding: 8rem 4rem;
+    padding: 6rem 4rem;
   }
 }
 
 .section-inner {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   width: 100%;
 }
@@ -113,14 +113,16 @@ p {
   font-size: 2.5rem;
   margin-bottom: 3rem;
   position: relative;
-  display: inline-block;
+  display: block;
+  text-align: center;
 }
 
 .section-title::after {
   content: '';
   position: absolute;
   bottom: -8px;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 60px;
   height: 4px;
   background: var(--color-text-main);

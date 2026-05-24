@@ -96,7 +96,7 @@ export default function Goals() {
             className="goals-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateColumns: 'repeat(2, 1fr)',
               gap: '1.5rem',
               marginTop: '2rem',
             }}
@@ -179,12 +179,7 @@ export default function Goals() {
 
       {/* Responsive */}
       <style>{`
-        @media (max-width: 900px) {
-          .goals-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
           .goals-grid {
             grid-template-columns: 1fr !important;
           }

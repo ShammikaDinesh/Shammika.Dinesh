@@ -44,7 +44,7 @@ const educationData = [
   },
 ];
 
-function EducationCard({ edu, index }) {
+function EducationCard({ edu }) {
   const cardRef = useRef(null);
   const cardInView = useInView(cardRef, { once: true, margin: '-100px' });
 
@@ -273,8 +273,8 @@ export default function Education() {
             </div>
 
             {/* Render Education Cards */}
-            {educationData.map((edu, index) => (
-              <EducationCard key={index} edu={edu} index={index} />
+            {educationData.map((edu, i) => (
+              <EducationCard key={i} edu={edu} />
             ))}
           </div>
         </div>

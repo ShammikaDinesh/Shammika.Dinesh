@@ -29,7 +29,7 @@ const experiences = [
   },
 ];
 
-function ExperienceCard({ exp, index }) {
+function ExperienceCard({ exp }) {
   const cardRef = useRef(null);
   const cardInView = useInView(cardRef, { once: true, margin: '-100px' });
 
@@ -257,8 +257,8 @@ export default function Experience() {
             </div>
 
             {/* Render Experience Cards */}
-            {experiences.map((exp, index) => (
-              <ExperienceCard key={index} exp={exp} index={index} />
+            {experiences.map((exp, i) => (
+              <ExperienceCard key={i} exp={exp} />
             ))}
           </div>
         </div>

@@ -13,32 +13,36 @@ const roles = [
 function useTypewriter(words, typingSpeed = 80, pause = 2000) {
   const [display, setDisplay] = useState('');
   const [wordIdx, setWordIdx] = useState(0);
-  const [charIdx, setCharIdx] = useState(0);
+  const charIdx = useRef(0);
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
     const current = words[wordIdx];
     let timeout;
 
-    if (!deleting && charIdx <= current.length) {
+    if (!deleting && charIdx.current <= current.length) {
       timeout = setTimeout(() => {
-        setDisplay(current.slice(0, charIdx));
-        setCharIdx((c) => c + 1);
+        setDisplay(current.slice(0, charIdx.current));
+        charIdx.current += 1;
       }, typingSpeed);
-    } else if (!deleting && charIdx > current.length) {
+    } else if (!deleting && charIdx.current > current.length) {
       timeout = setTimeout(() => setDeleting(true), pause);
-    } else if (deleting && charIdx > 0) {
+    } else if (deleting && charIdx.current > 0) {
       timeout = setTimeout(() => {
-        setCharIdx((c) => c - 1);
-        setDisplay(current.slice(0, charIdx - 1));
+        charIdx.current -= 1;
+        setDisplay(current.slice(0, charIdx.current));
       }, typingSpeed / 2);
     } else {
-      setDeleting(false);
-      setWordIdx((w) => (w + 1) % words.length);
+      setTimeout(() => {
+        charIdx.current = 0;
+        setDeleting(false);
+        setWordIdx((w) => (w + 1) % words.length);
+      }, typingSpeed);
+      return;
     }
 
     return () => clearTimeout(timeout);
-  }, [charIdx, deleting, wordIdx, words, typingSpeed, pause]);
+  }, [display, deleting, wordIdx, words, typingSpeed, pause]);
 
   return display;
 }
@@ -112,7 +116,7 @@ export default function Hero() {
         }}
       />
 
-      {/* ── Parallax Layer 2: Geometric brackets ── */}
+      {/* ── Parallax Layer 2: Decorative curves & stars ── */}
       <motion.div
         style={{
           y: y2,

@@ -83,7 +83,7 @@ export default function Skills() {
             className="skills-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateColumns: 'repeat(2, 1fr)',
               gap: '1.5rem',
             }}
           >
@@ -153,12 +153,7 @@ export default function Skills() {
 
       {/* ── Responsive ── */}
       <style>{`
-        @media (max-width: 900px) {
-          .skills-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
           .skills-grid {
             grid-template-columns: 1fr !important;
           }

@@ -179,7 +179,7 @@ export default function Footer() {
             <div>
               <h4 style={{ color: 'var(--color-text-main)', marginBottom: '1.5rem', fontSize: '1rem', fontWeight: 500 }}>NAVIGATE</h4>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                {['Home', 'Services', 'Portfolio', 'About', 'Testimonials'].map(link => (
+                {['Home', 'About', 'Experience', 'Education', 'Skills', 'Vision', 'Contact'].map(link => (
                   <li key={link}>
                     <a href={`#${link.toLowerCase()}`} style={{
                       color: 'var(--color-text-muted)',

@@ -48,30 +48,14 @@ export default function Contact() {
     >
       <div className="section">
         <div className="section-inner" style={{ maxWidth: 640, margin: '0 auto' }}>
-          {/* Section Title */}
           <motion.h2
             className="section-title"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6 }}
-            style={{ textAlign: 'center', display: 'block' }}
           >
-            <span style={{ display: 'inline-block', position: 'relative' }}>
-              Get in Touch
-              <span
-                style={{
-                  position: 'absolute',
-                  bottom: -8,
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  width: 60,
-                  height: 4,
-                  background: 'var(--color-text-main)',
-                  borderRadius: 2,
-                }}
-              />
-            </span>
+            Get in Touch
           </motion.h2>
 
           {/* Contact Card */}
